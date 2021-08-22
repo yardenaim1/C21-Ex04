@@ -1,5 +1,5 @@
 ﻿using Ex04.Menus.Delegates;
-
+using System;
 namespace Ex04.Menus.Test
 {
     public class CreatorOfDelegatesMenu
@@ -19,11 +19,10 @@ namespace Ex04.Menus.Test
             MenuItem showTime = new MenuItem("Show Time");
             MenuItem showDate = new MenuItem("Show Date");
 
-            countSpaces.ItemChosen += Methods.CountSpaces;
-            showVersion.ItemChosen += Methods.ShowVersion;
+            //  countSpaces.ItemChosen += n
+            showVersion.ItemChosen += new ShowVersion().OnItemChosen;
             showTime.ItemChosen += Methods.ShowTime;
             showDate.ItemChosen += Methods.ShowDate;
-
 
             versionAndSpaces.AddItem(countSpaces);
             versionAndSpaces.AddItem(showVersion);

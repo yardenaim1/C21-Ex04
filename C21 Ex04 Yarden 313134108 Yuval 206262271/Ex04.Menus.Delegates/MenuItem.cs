@@ -16,8 +16,9 @@ namespace Ex04.Menus.Delegates
         {
             get
             {
-                return this.r_Title;
+                return this.m_PrevItem;
             }
+
             set
             {
                 this.m_PrevItem = value;

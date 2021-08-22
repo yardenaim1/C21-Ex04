@@ -4,25 +4,25 @@ namespace Ex04.Menus.Test
 {
     public static class CreatorOfInterfacesMenu
     {
-        public static MainMenuInter CreateMenu()
+        public static MainMenu CreateMenu()
         {
-            MainMenuInter mainMenu = new MainMenuInter("Main Delegates");
-            MenuItemInter versionAndSpaces = new MenuItemInter("Version And Spaces");
-            MenuItemInter dateAndTime = new MenuItemInter("Show Date/Time");
+            MainMenu mainMenu = new MainMenu("Main Interfaces");
+            MenuItem versionAndSpaces = new MenuItem("Version And Spaces");
+            MenuItem dateAndTime = new MenuItem("Show Date/Time");
 
-            mainMenu.AddItem(versionAndSpaces);
-            mainMenu.AddItem(dateAndTime);
+            mainMenu.AddMenuItem(versionAndSpaces);
+            mainMenu.AddMenuItem(dateAndTime);
 
-            MenuItemInter countSpaces = new MenuItemInter("Count Spaces");
-            MenuItemInter showVersion = new MenuItemInter("Show Version");
+            MenuItem countSpaces = new MenuItem("Count Spaces");
+            MenuItem showVersion = new MenuItem("Show Version");
 
-            MenuItemInter showTime = new MenuItemInter("Show Time");
-            MenuItemInter showDate = new MenuItemInter("Show Date");
+            MenuItem showTime = new MenuItem("Show Time");
+            MenuItem showDate = new MenuItem("Show Date");
 
-            /*countSpaces.ItemChosen += Methods.CountSpaces;
-            showVersion.ItemChosen += Methods.ShowVersion;
-            showTime.ItemChosen += Methods.ShowTime;
-            showDate.ItemChosen += Methods.ShowDate;*/
+            countSpaces.itemOperation = new CountSpaces();
+            showVersion.itemOperation = new ShowVersion();
+            showTime.itemOperation = new ShowTime();
+            showDate.itemOperation = new ShowDate();
             
 
             versionAndSpaces.AddItem(countSpaces);
