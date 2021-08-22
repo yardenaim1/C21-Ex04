@@ -4,7 +4,11 @@
     {
         public static void main()
         {
-            /// Create 2 Manus and show them
+            /// <summary>
+            ///
+            ///Create 2 Manus and show them
+            ///
+            /// </summary>
         }
     }
 }
