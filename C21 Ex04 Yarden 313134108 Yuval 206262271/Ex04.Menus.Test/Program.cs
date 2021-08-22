@@ -7,8 +7,11 @@ namespace Ex04.Menus.Test
     {
         public static void Main()
         {
-            Delegates.MainMenu menuDelegates = CreatorOfDelegatesMenu.CreateMenu();
-            menuDelegates.Show();
+            /*Delegates.MainMenu menuDelegates = CreatorOfDelegatesMenu.CreateMenu();
+            menuDelegates.Show();*/
+
+            Ex04.Menus.Interfaces.MainMenuInter menuInterfaces = CreatorOfInterfacesMenu.CreateMenu();
+            menuInterfaces.Show();
         }
     }
 }

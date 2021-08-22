@@ -4,9 +4,9 @@
     {
         private readonly MenuItem r_MenuItemList;
 
-        public MainMenu(string i_MenuTile)
+        public MainMenu(string i_MenuTitle)
         {
-            r_MenuItemList = new MenuItem(i_MenuTile);
+            r_MenuItemList = new MenuItem(i_MenuTitle);
         }
 
         public void AddItem(MenuItem i_ItemToAdd)
