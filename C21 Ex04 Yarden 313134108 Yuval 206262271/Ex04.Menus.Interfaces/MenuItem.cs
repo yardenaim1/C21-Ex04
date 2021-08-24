@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace Ex04.Menus.Interfaces
 {
-
     public class MenuItem
     {
         public IMenuItemOperation m_ItemOperation;
@@ -65,12 +64,6 @@ namespace Ex04.Menus.Interfaces
             {
                 return this.r_Title;
             }
-        }
-        
-        public static void ContinueIfKeyPressed()
-        {
-            Console.WriteLine("Press any key to continue");
-            Console.ReadKey();
         }
     }
 }

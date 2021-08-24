@@ -39,7 +39,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DisplayItem.cs" />
     <Compile Include="IMenuItemOperation.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="MenuItem.cs" />

@@ -14,5 +14,11 @@ namespace Ex04.Menus.Test
             menuInterface.Show();
 
         }
+
+        public static void ContinueIfKeyPressed()
+        {
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+        }
     }
 }

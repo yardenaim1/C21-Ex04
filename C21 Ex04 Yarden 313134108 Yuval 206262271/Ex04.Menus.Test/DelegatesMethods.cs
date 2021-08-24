@@ -1,58 +1,44 @@
 ﻿using System;
 using System.Linq;
-using Ex04.Menus.Interfaces;
+using Ex04.Menus.Delegates;
 
 namespace Ex04.Menus.Test
 {
-    public class CountSpaces : IMenuItemOperation
+    public static class DelegatesMethods 
     {
-        private void countSpaces()
+        public static void CountSpaces(MenuItem i_MenuItem)
         {
             Console.WriteLine("Please enter a string to count its spaces and press 'enter':");
             string toCount = Console.ReadLine();
             int spacesCount = toCount.Count(x => x == ' ');
             Console.WriteLine("There are {0} spaces.", spacesCount);
+            Program.ContinueIfKeyPressed();
         }
 
-        public void OnItemChosen(MenuItem i_MenuItem)
-        {
-            countSpaces();
-            MenuItem.ContinueIfKeyPressed();
-        }
-    }
-
-    public struct ShowVersion : IMenuItemOperation
-    {
-        public void OnItemChosen(MenuItem i_MenuItem)
+        public static void ShowVersion(MenuItem i_MenuItem)
         {
             Console.WriteLine("Version: 21.3.4.8933");
-            MenuItem.ContinueIfKeyPressed();
+            Program.ContinueIfKeyPressed();
         }
-    }
 
-    public struct ShowTime : IMenuItemOperation
-    {
-        public void OnItemChosen(MenuItem i_MenuItem)
+        public static void ShowTime(MenuItem i_MenuItem)
         {
             Console.WriteLine(
                     "The time is: {0}:{1}:{2}",
                     DateTime.Now.Hour,
                     DateTime.Now.Minute,
                     DateTime.Now.Second);
-            MenuItem.ContinueIfKeyPressed();
+            Program.ContinueIfKeyPressed();
         }
-    }
 
-    public struct ShowDate : IMenuItemOperation
-    {
-        public void OnItemChosen(MenuItem i_MenuItem)
+        public static void ShowDate(MenuItem i_MenuItem)
         {
             Console.WriteLine(
                 "The date is: {0}/{1}/{2}",
                 DateTime.Now.Day,
                 DateTime.Now.Month,
                 DateTime.Now.Year);
-            MenuItem.ContinueIfKeyPressed();
+            Program.ContinueIfKeyPressed();
         }
     }
 }
