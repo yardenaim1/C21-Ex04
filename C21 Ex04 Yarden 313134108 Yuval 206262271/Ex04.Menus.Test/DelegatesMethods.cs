@@ -8,9 +8,14 @@ namespace Ex04.Menus.Test
     {
         public static void CountSpaces(MenuItem i_MenuItem)
         {
+            int spacesCount = 0;
             Console.WriteLine("Please enter a string to count its spaces and press 'enter':");
             string toCount = Console.ReadLine();
-            int spacesCount = toCount.Count(x => x == ' ');
+            if (toCount != null)
+            {
+                spacesCount = toCount.Count(i_Ch => i_Ch == ' ');
+            }
+
             Console.WriteLine("There are {0} spaces.", spacesCount);
             Program.ContinueIfKeyPressed();
         }

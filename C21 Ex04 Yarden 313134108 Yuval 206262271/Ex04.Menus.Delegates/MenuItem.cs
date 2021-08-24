@@ -53,11 +53,11 @@ namespace Ex04.Menus.Delegates
             {
                 Console.Clear();
                 Console.WriteLine(Title);
-                Console.WriteLine(string.Format(@"{0}){1}", itemCounter++, m_PrevItem == null ? "Exit" : "Back"));
+                Console.WriteLine(String.Format(@"{0}){1}", itemCounter++, m_PrevItem == null ? "Exit" : "Back"));
 
                 foreach (MenuItem item in r_ItemsList)
                 {
-                    Console.WriteLine(string.Format(@"{0}){1}", itemCounter++, item.Title));
+                    Console.WriteLine(String.Format(@"{0}){1}", itemCounter++, item.Title));
                 }
 
                 userInput = getChoiceFromUser(k_GoBack, itemCounter - 1);
@@ -69,22 +69,23 @@ namespace Ex04.Menus.Delegates
                 }
 
                 itemCounter = 0;
-            } while (userInput != k_GoBack);
+            }
+            while (userInput != k_GoBack);
 
             Console.Clear();
         }
 
-        private static int getChoiceFromUser(int i_MinNumber, int i_itemCount)
+        private static int getChoiceFromUser(int i_MinNumber, int i_ItemCount)
         {
             bool validInput;
-            string msgToUser = string.Format(@"{0}Please select option ({1}-{2}):", Environment.NewLine, i_MinNumber, i_itemCount);
+            string msgToUser = string.Format(@"{0}Please select option ({1}-{2}):", Environment.NewLine, i_MinNumber, i_ItemCount);
 
             Console.WriteLine(msgToUser);
             validInput = int.TryParse(Console.ReadLine(), out int inputNumber);
 
-            while (!validInput || inputNumber > i_itemCount || inputNumber < i_MinNumber)
+            while (!validInput || inputNumber > i_ItemCount || inputNumber < i_MinNumber)
             {
-                msgToUser = string.Format(@"Invalid input, please try again:({0}-{1})", i_MinNumber, i_itemCount);
+                msgToUser = string.Format(@"Invalid input, please try again:({0}-{1})", i_MinNumber, i_ItemCount);
                 Console.WriteLine(msgToUser);
                 validInput = int.TryParse(Console.ReadLine(), out inputNumber);
             }

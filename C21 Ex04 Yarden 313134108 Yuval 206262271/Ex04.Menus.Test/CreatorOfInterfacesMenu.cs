@@ -7,13 +7,13 @@ namespace Ex04.Menus.Test
         public static MainMenu CreateMenu()
         {
             MainMenu mainMenu = new MainMenu("Main Interfaces");
-            mainMenu.MainMenuItem.itemOperation = new DisplayItem();
+            mainMenu.MainMenuItem.ItemOperation = new DisplayItem();
 
             MenuItem versionAndSpaces = new MenuItem("Version And Spaces");
             MenuItem dateAndTime = new MenuItem("Show Date/Time");
 
-            versionAndSpaces.itemOperation = new DisplayItem();
-            dateAndTime.itemOperation = new DisplayItem();
+            versionAndSpaces.ItemOperation = new DisplayItem();
+            dateAndTime.ItemOperation = new DisplayItem();
 
             mainMenu.AddItem(versionAndSpaces);
             mainMenu.AddItem(dateAndTime);
@@ -24,12 +24,11 @@ namespace Ex04.Menus.Test
             MenuItem showTime = new MenuItem("Show Time");
             MenuItem showDate = new MenuItem("Show Date");
 
-            countSpaces.itemOperation = new CountSpaces();
-            showVersion.itemOperation = new ShowVersion();
-            showTime.itemOperation = new ShowTime();
-            showDate.itemOperation = new ShowDate();
+            countSpaces.ItemOperation = new CountSpaces();
+            showVersion.ItemOperation = new ShowVersion();
+            showTime.ItemOperation = new ShowTime();
+            showDate.ItemOperation = new ShowDate();
             
-
             versionAndSpaces.AddItem(countSpaces);
             versionAndSpaces.AddItem(showVersion);
 

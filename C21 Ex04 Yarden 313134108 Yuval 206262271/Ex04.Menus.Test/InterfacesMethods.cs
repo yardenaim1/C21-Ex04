@@ -8,9 +8,14 @@ namespace Ex04.Menus.Test
     {
         private void countSpaces()
         {
+            int spacesCount = 0;
             Console.WriteLine("Please enter a string to count its spaces and press 'enter':");
             string toCount = Console.ReadLine();
-            int spacesCount = toCount.Count(x => x == ' ');
+            if (toCount != null)
+            {
+                spacesCount = toCount.Count(i_Ch => i_Ch == ' ');
+            }
+
             Console.WriteLine("There are {0} spaces.", spacesCount);
         }
 
@@ -84,22 +89,23 @@ namespace Ex04.Menus.Test
                 }
 
                 itemCounter = 0;
-            } while (userInput != goBack);
+            }
+            while (userInput != goBack);
 
             Console.Clear();
         }
 
-        private static int getChoiceFromUser(int i_MinNumber, int i_itemCount)
+        private static int getChoiceFromUser(int i_MinNumber, int i_ItemCount)
         {
             bool validInput;
-            string msgToUser = string.Format(@"{0}Please select option ({1}-{2}):", Environment.NewLine, i_MinNumber, i_itemCount);
+            string msgToUser = string.Format(@"{0}Please select option ({1}-{2}):", Environment.NewLine, i_MinNumber, i_ItemCount);
 
             Console.WriteLine(msgToUser);
             validInput = int.TryParse(Console.ReadLine(), out int inputNumber);
 
-            while (!validInput || inputNumber > i_itemCount || inputNumber < i_MinNumber)
+            while (!validInput || inputNumber > i_ItemCount || inputNumber < i_MinNumber)
             {
-                msgToUser = string.Format(@"Invalid input, please try again:({0}-{1})", i_MinNumber, i_itemCount);
+                msgToUser = string.Format(@"Invalid input, please try again:({0}-{1})", i_MinNumber, i_ItemCount);
                 Console.WriteLine(msgToUser);
                 validInput = int.TryParse(Console.ReadLine(), out inputNumber);
             }

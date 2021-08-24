@@ -1,5 +1,4 @@
 ﻿using System;
-using Ex04.Menus;
 
 namespace Ex04.Menus.Test
 {
@@ -12,7 +11,6 @@ namespace Ex04.Menus.Test
 
             Interfaces.MainMenu menuInterface = CreatorOfInterfacesMenu.CreateMenu();
             menuInterface.Show();
-
         }
 
         public static void ContinueIfKeyPressed()
