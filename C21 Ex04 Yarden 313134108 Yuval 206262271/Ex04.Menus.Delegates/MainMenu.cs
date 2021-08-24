@@ -4,6 +4,11 @@
     {
         private readonly MenuItem r_MenuItemList;
 
+        public MenuItem MainMenuList
+        {
+            get { return r_MenuItemList; }
+        }
+
         public MainMenu(string i_MenuTitle)
         {
             r_MenuItemList = new MenuItem(i_MenuTitle);
@@ -14,20 +19,9 @@
             r_MenuItemList.AddItem(i_ItemToAdd);
         }
 
-        public void AddMenuItem(MenuItem i_ItemToAdd)
-        {
-            r_MenuItemList.AddItem(i_ItemToAdd);
-            i_ItemToAdd.ItemChosen += MenuItem_ItemChosen;
-        }
-
-        private void MenuItem_ItemChosen(MenuItem i_MenuItem)
-        {
-            i_MenuItem.DisplayInnerMenu();
-        }
-
         public void Show()
         {
-            r_MenuItemList.DisplayInnerMenu();
+            r_MenuItemList.ItemChosenFunc();
         }
     }
 }

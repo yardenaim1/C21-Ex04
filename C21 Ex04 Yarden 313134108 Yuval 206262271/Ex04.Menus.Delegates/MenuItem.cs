@@ -12,6 +12,14 @@ namespace Ex04.Menus.Delegates
 
         public event Action<MenuItem> ItemChosen;
 
+        public List<MenuItem> ItemList
+        {
+            get
+            {
+                return r_ItemsList;
+            }
+        }
+
         public string PrevItem
         {
             get
@@ -44,53 +52,9 @@ namespace Ex04.Menus.Delegates
             i_ItemToAdd.PrevItem = this.Title;
         }
 
-        public void DisplayInnerMenu()
-        { 
-            int itemCounter = 0;
-            int userInput;
-
-            do
-            {
-                Console.Clear();
-                Console.WriteLine(Title);
-                Console.WriteLine(String.Format(@"{0}){1}", itemCounter++, m_PrevItem == null ? "Exit" : "Back"));
-
-                foreach (MenuItem item in r_ItemsList)
-                {
-                    Console.WriteLine(String.Format(@"{0}){1}", itemCounter++, item.Title));
-                }
-
-                userInput = getChoiceFromUser(k_GoBack, itemCounter - 1);
-
-                if (userInput != k_GoBack)
-                {
-                    Console.Clear();
-                    r_ItemsList[userInput - 1].OnItemChosen();
-                }
-
-                itemCounter = 0;
-            }
-            while (userInput != k_GoBack);
-
-            Console.Clear();
-        }
-
-        private static int getChoiceFromUser(int i_MinNumber, int i_ItemCount)
+        public void ItemChosenFunc()
         {
-            bool validInput;
-            string msgToUser = string.Format(@"{0}Please select option ({1}-{2}):", Environment.NewLine, i_MinNumber, i_ItemCount);
-
-            Console.WriteLine(msgToUser);
-            validInput = int.TryParse(Console.ReadLine(), out int inputNumber);
-
-            while (!validInput || inputNumber > i_ItemCount || inputNumber < i_MinNumber)
-            {
-                msgToUser = string.Format(@"Invalid input, please try again:({0}-{1})", i_MinNumber, i_ItemCount);
-                Console.WriteLine(msgToUser);
-                validInput = int.TryParse(Console.ReadLine(), out inputNumber);
-            }
-
-            return inputNumber;
+            OnItemChosen();
         }
 
         protected virtual void OnItemChosen()
